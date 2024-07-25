@@ -16,12 +16,12 @@ import com.joaosantos.projectmongo.services.UserService;
 public class UserResources {
 	
 	@Autowired
-	UserService service;
+	private UserService service;
 	
 	@GetMapping
 	public ResponseEntity<List<User>> findall() {
-		
-		return ResponseEntity.ok().body();
+		List<User> users = service.findAll();
+		return ResponseEntity.ok().body(users);
 	}
 
 }

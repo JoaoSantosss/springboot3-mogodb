@@ -3,22 +3,27 @@ package com.joaosantos.projectmongo.domain;
 import java.io.Serializable;
 import java.util.Objects;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection="user")
 public class User implements Serializable{
-	
+
 	private static final long serialVersionUID = 1L;
 	
-	private Long id;
+	@Id
+	private String id;
 	private String name;
 	private String email;
 	
 	public User() {
 	}
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
