@@ -46,6 +46,7 @@ public class Instantiation implements CommandLineRunner {
 		
 		maria.addPost(post1);
 		maria.addPost(post2);
+		//System.out.println(maria.getPosts().stream().map(p -> p.getTitle()).collect(Collectors.toList()));
 		userRepository.save(maria);
 		
 		
