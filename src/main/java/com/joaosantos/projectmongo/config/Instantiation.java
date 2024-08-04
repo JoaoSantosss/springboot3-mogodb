@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import com.joaosantos.projectmongo.domain.Post;
 import com.joaosantos.projectmongo.domain.User;
 import com.joaosantos.projectmongo.dto.AuthorDTO;
+import com.joaosantos.projectmongo.dto.CommentDTO;
 import com.joaosantos.projectmongo.repositories.PostRepository;
 import com.joaosantos.projectmongo.repositories.UserRepository;
 
@@ -46,8 +47,17 @@ public class Instantiation implements CommandLineRunner {
 		
 		maria.addPost(post1);
 		maria.addPost(post2);
-		//System.out.println(maria.getPosts().stream().map(p -> p.getTitle()).collect(Collectors.toList()));
 		userRepository.save(maria);
+		
+		post1.addComment(new CommentDTO("Boa Viagem", sdf.parse("21/03/2018"), new AuthorDTO(bob)));
+		post1.addComment(new CommentDTO("Aproveite!", sdf.parse("22/03/2018"), new AuthorDTO(alex)));
+		
+		post2.addComment(new CommentDTO("Tenha um otimo dia!", sdf.parse("23/03/2018"), new AuthorDTO(alex)));
+
+		postRepository.saveAll(Arrays.asList(post1, post2));
+
+		
+		
 		
 		
 		
