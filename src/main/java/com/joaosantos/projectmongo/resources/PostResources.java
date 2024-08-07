@@ -47,10 +47,7 @@ public class PostResources {
 		Date min = URL.convertDate(minDate, new Date(0L));
 		Date max = URL.convertDate(maxDate, new Date());
 		
-		service.fullSearch(text, min, max);
-		
-		
-		List<Post> posts = service.findByTitle(text);
+		List<Post> posts = service.fullSearch(text, min, max);
 		
 		return ResponseEntity.ok().body(posts);
 	}
